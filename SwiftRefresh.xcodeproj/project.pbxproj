@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D54E247201DE7A100F92D4E /* SwiftRefreshBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D54E246201DE7A100F92D4E /* SwiftRefreshBase.swift */; };
+		5D54E249201DEA0800F92D4E /* SwiftRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D54E248201DEA0800F92D4E /* SwiftRefreshHeader.swift */; };
+		5DD828012024101800595837 /* UIView+SwiftRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD828002024101800595837 /* UIView+SwiftRefresh.swift */; };
+		5DD828032024103700595837 /* BaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD828022024103700595837 /* BaseConfig.swift */; };
+		5DD828062026E59700595837 /* NormalDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD828052026E59700595837 /* NormalDisplayView.swift */; };
+		5DD828082026E70B00595837 /* SwiftRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5DD828072026E70B00595837 /* SwiftRefresh.bundle */; };
+		5DD8280A2026E90E00595837 /* SwiftRefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD828092026E90E00595837 /* SwiftRefreshNormalHeader.swift */; };
+		5DD8280C2026F30600595837 /* SwiftRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8280B2026F30600595837 /* SwiftRefreshFooter.swift */; };
+		5DD8280E2026F91F00595837 /* SwiftRefreshAutoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8280D2026F91F00595837 /* SwiftRefreshAutoFooter.swift */; };
+		5DD828102026F95300595837 /* SwiftRefreshManualFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD8280F2026F95300595837 /* SwiftRefreshManualFooter.swift */; };
 		5DF3694D201D8352009EB56B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF36945201D8352009EB56B /* AppDelegate.swift */; };
 		5DF3694E201D8352009EB56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF36946201D8352009EB56B /* Assets.xcassets */; };
 		5DF3694F201D8352009EB56B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF36947201D8352009EB56B /* LaunchScreen.storyboard */; };
 		5DF36950201D8352009EB56B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF36949201D8352009EB56B /* Main.storyboard */; };
 		5DF36951201D8352009EB56B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DF3694B201D8352009EB56B /* Info.plist */; };
 		5DF36952201D8352009EB56B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF3694C201D8352009EB56B /* ViewController.swift */; };
+		5DF369D0201D89D7009EB56B /* ScrollView+SwiftRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF369CF201D89D7009EB56B /* ScrollView+SwiftRefresh.swift */; };
+		5DF369D3201D8A67009EB56B /* SwiftRefreshHeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF369D2201D8A67009EB56B /* SwiftRefreshHeaderType.swift */; };
+		5DF369D7201DB48E009EB56B /* SwiftRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF369D6201DB48E009EB56B /* SwiftRefreshConst.swift */; };
+		5DFBE8EA2029D71C0007B523 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFBE8E92029D71C0007B523 /* UIScrollViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +70,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5D54E246201DE7A100F92D4E /* SwiftRefreshBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshBase.swift; sourceTree = "<group>"; };
+		5D54E248201DEA0800F92D4E /* SwiftRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshHeader.swift; sourceTree = "<group>"; };
+		5DD828002024101800595837 /* UIView+SwiftRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SwiftRefresh.swift"; sourceTree = "<group>"; };
+		5DD828022024103700595837 /* BaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfig.swift; sourceTree = "<group>"; };
+		5DD828052026E59700595837 /* NormalDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalDisplayView.swift; sourceTree = "<group>"; };
+		5DD828072026E70B00595837 /* SwiftRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SwiftRefresh.bundle; sourceTree = "<group>"; };
+		5DD828092026E90E00595837 /* SwiftRefreshNormalHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshNormalHeader.swift; sourceTree = "<group>"; };
+		5DD8280B2026F30600595837 /* SwiftRefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshFooter.swift; sourceTree = "<group>"; };
+		5DD8280D2026F91F00595837 /* SwiftRefreshAutoFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshAutoFooter.swift; sourceTree = "<group>"; };
+		5DD8280F2026F95300595837 /* SwiftRefreshManualFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshManualFooter.swift; sourceTree = "<group>"; };
 		5DF36911201D7FCE009EB56B /* SwiftRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF36925201D7FCE009EB56B /* SwiftRefreshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRefreshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF36930201D7FCE009EB56B /* SwiftRefreshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRefreshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +89,10 @@
 		5DF3694A201D8352009EB56B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DF3694B201D8352009EB56B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DF3694C201D8352009EB56B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DF369CF201D89D7009EB56B /* ScrollView+SwiftRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+SwiftRefresh.swift"; sourceTree = "<group>"; };
+		5DF369D2201D8A67009EB56B /* SwiftRefreshHeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRefreshHeaderType.swift; sourceTree = "<group>"; };
+		5DF369D6201DB48E009EB56B /* SwiftRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRefreshConst.swift; sourceTree = "<group>"; };
+		5DFBE8E92029D71C0007B523 /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +120,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D54E245201DE77800F92D4E /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				5DD828042026E53E00595837 /* HeaderDisplayView */,
+				5D54E246201DE7A100F92D4E /* SwiftRefreshBase.swift */,
+				5D54E248201DEA0800F92D4E /* SwiftRefreshHeader.swift */,
+				5DD8280B2026F30600595837 /* SwiftRefreshFooter.swift */,
+				5DD8280D2026F91F00595837 /* SwiftRefreshAutoFooter.swift */,
+				5DD8280F2026F95300595837 /* SwiftRefreshManualFooter.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		5DD828042026E53E00595837 /* HeaderDisplayView */ = {
+			isa = PBXGroup;
+			children = (
+				5DD828052026E59700595837 /* NormalDisplayView.swift */,
+				5DD828092026E90E00595837 /* SwiftRefreshNormalHeader.swift */,
+			);
+			path = HeaderDisplayView;
+			sourceTree = "<group>";
+		};
 		5DF36908201D7FCE009EB56B = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +165,9 @@
 		5DF36942201D8347009EB56B /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5D54E245201DE77800F92D4E /* Component */,
+				5DF369D1201D8A52009EB56B /* Protocol */,
+				5DF369CE201D897E009EB56B /* Config */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -136,6 +189,7 @@
 				5DF36947201D8352009EB56B /* LaunchScreen.storyboard */,
 				5DF36949201D8352009EB56B /* Main.storyboard */,
 				5DF3694B201D8352009EB56B /* Info.plist */,
+				5DFBE8E92029D71C0007B523 /* UIScrollViewExtensions.swift */,
 			);
 			path = SwiftRefresh;
 			sourceTree = "<group>";
@@ -145,6 +199,26 @@
 			children = (
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		5DF369CE201D897E009EB56B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5DD828022024103700595837 /* BaseConfig.swift */,
+				5DF369D6201DB48E009EB56B /* SwiftRefreshConst.swift */,
+				5DD828002024101800595837 /* UIView+SwiftRefresh.swift */,
+				5DF369CF201D89D7009EB56B /* ScrollView+SwiftRefresh.swift */,
+				5DD828072026E70B00595837 /* SwiftRefresh.bundle */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		5DF369D1201D8A52009EB56B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5DF369D2201D8A67009EB56B /* SwiftRefreshHeaderType.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +332,7 @@
 			files = (
 				5DF36951201D8352009EB56B /* Info.plist in Resources */,
 				5DF36950201D8352009EB56B /* Main.storyboard in Resources */,
+				5DD828082026E70B00595837 /* SwiftRefresh.bundle in Resources */,
 				5DF3694E201D8352009EB56B /* Assets.xcassets in Resources */,
 				5DF3694F201D8352009EB56B /* LaunchScreen.storyboard in Resources */,
 			);
@@ -284,8 +359,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD8280A2026E90E00595837 /* SwiftRefreshNormalHeader.swift in Sources */,
+				5D54E249201DEA0800F92D4E /* SwiftRefreshHeader.swift in Sources */,
 				5DF36952201D8352009EB56B /* ViewController.swift in Sources */,
+				5DD8280E2026F91F00595837 /* SwiftRefreshAutoFooter.swift in Sources */,
+				5DD828102026F95300595837 /* SwiftRefreshManualFooter.swift in Sources */,
 				5DF3694D201D8352009EB56B /* AppDelegate.swift in Sources */,
+				5DF369D7201DB48E009EB56B /* SwiftRefreshConst.swift in Sources */,
+				5DD828012024101800595837 /* UIView+SwiftRefresh.swift in Sources */,
+				5DFBE8EA2029D71C0007B523 /* UIScrollViewExtensions.swift in Sources */,
+				5DD8280C2026F30600595837 /* SwiftRefreshFooter.swift in Sources */,
+				5DF369D3201D8A67009EB56B /* SwiftRefreshHeaderType.swift in Sources */,
+				5D54E247201DE7A100F92D4E /* SwiftRefreshBase.swift in Sources */,
+				5DD828032024103700595837 /* BaseConfig.swift in Sources */,
+				5DF369D0201D89D7009EB56B /* ScrollView+SwiftRefresh.swift in Sources */,
+				5DD828062026E59700595837 /* NormalDisplayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
