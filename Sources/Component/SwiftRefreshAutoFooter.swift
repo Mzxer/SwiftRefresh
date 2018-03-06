@@ -10,19 +10,23 @@ import UIKit
 
 class SwiftRefreshAutoFooter: SwiftRefreshFooter {
 
-    public var isRefreshAutomatically: Bool = false
-    public var autoRefreshTriggerPercent: CGFloat = 0.1
+    public var isRefreshAutomatically: Bool = true
+    public var autoRefreshTriggerPercent: CGFloat = 1.0
     
-    private var isOverScreen: Bool {
-        return (scrollView.contentSize.height + ignoredScrollViewContentInsetBottom) > scrollView.sr_height
+    
+    private var isContentOverContainer: Bool {
+        return scrollView.contentInset.top + scrollView.contentSize.height > scrollView.sr_height
     }
     private var willShowOffsetY : CGFloat {
-        return scrollView.contentSize.height  + self.ignoredScrollViewContentInsetBottom - scrollView.sr_height
+        return scrollView.contentSize.height  + self.scrollView.contentInset.bottom - scrollView.sr_height
     }
     private var didShowOffsetY : CGFloat {
-        return scrollView.contentSize.height  + self.ignoredScrollViewContentInsetBottom + self.sr_height - scrollView.sr_height
+        return willShowOffsetY + self.sr_height
     }
-    
+    private var triggerOffsetY : CGFloat {
+        return willShowOffsetY  - self.sr_height + (self.sr_height * autoRefreshTriggerPercent)
+
+    }
     
     override var state: SwiftRefreshState {
         willSet {
@@ -30,20 +34,10 @@ class SwiftRefreshAutoFooter: SwiftRefreshFooter {
             guard newValue != oldState else { return }
             super.state = newValue
             switch newValue {
-            case .idle:
-                guard oldState == .refreshing else { break }
-                UIView.animate(withDuration: SR.animationDuration, animations: {
-                    self.scrollView.contentInset = self.scrollViewOriginalInset
-                }, completion: nil)
-                
             case .refreshing:
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: SR.animationDuration, animations: {
-                        self.scrollView.contentOffset.y = self.didShowOffsetY
-                    }){(finish) in
-                        self.refreshingHandler?()
-                    }
-                }
+                delay(0.5, task: {
+                    self.refreshingHandler?()
+                })
             default: break
             }
         }
@@ -51,88 +45,55 @@ class SwiftRefreshAutoFooter: SwiftRefreshFooter {
     
     override func prepare() {
         super.prepare()
-        
     }
     
+    // handle when panGR end
     override func scrollViewPanState(didChange change: [NSKeyValueChangeKey : Any]?) {
         super.scrollViewPanState(didChange: change)
+        guard state == .idle else { return }
+        guard scrollView.panGestureRecognizer.state == .ended else { return }
+        if isContentOverContainer {
+            guard scrollView.contentOffset.y >=
+                scrollView.contentSize.height +
+                scrollView.contentInset.bottom -
+                scrollView.sr_height else { return }
+        }else {
+            guard  scrollView.contentOffset.y >= -scrollView.contentInset.top else { return }
+        }
+        beginRefreshing()
     }
     
     override func scrollViewContentSize(didChange change: [NSKeyValueChangeKey : Any]?) {
         super.scrollViewContentSize(didChange: change)
-        self.sr_y = scrollView.contentSize.height + ignoredScrollViewContentInsetBottom
-    }
-    
-    override func scrollViewContentInset(didChange change: [NSKeyValueChangeKey : Any]?) {
-        super.scrollViewContentInset(didChange: change)
+        
+        self.sr_y = scrollView.contentSize.height 
     }
     
     override func scrollViewContentOffset(didChange change: [NSKeyValueChangeKey : Any]?) {
         super.scrollViewContentOffset(didChange: change)
-        guard let _ = self.window else { return }
-        guard self.state != .refreshing else {
-            resetInsetForHoveringWhenRefreshing()
-            return
-        }
-        guard isRefreshAutomatically else {
-            handleWhenNonautomatical()
-            return
-        }
-    }
+        guard state == .idle && isRefreshAutomatically else { return }
+        guard isContentOverContainer else { return }
+        guard scrollView.contentOffset.y >= triggerOffsetY else { return }
     
-    private func handleWhenNonautomatical() {
-        let offsetY = scrollView.contentOffset.y
-        let pullingPercent = -(offsetY - willShowOffsetY) / self.sr_height
+        if let old = change?[.oldKey] as? CGPoint,
+           let new = change?[.newKey] as? CGPoint,
+           new.y <= old.y {return}
         
-        guard scrollView.isDragging else {
-            switch state {
-            case .pulling:   self.beginRefreshing()
-            default:  self.pullingPercent = pullingPercent
-            }
-            return
-        }
-        
-        switch offsetY {
-        case didShowOffsetY ..< CGFloat.greatestFiniteMagnitude:
-            if self.state == .idle {
-                self.state = .pulling
-            }
-        case   -(CGFloat.greatestFiniteMagnitude) ..< didShowOffsetY:
-            if self.state == .pulling {
-                self.state = .idle
-            }
-        default: break
-        }
-    }
-    
-    private func resetInsetForHoveringWhenRefreshing() {
-        switch scrollView.contentOffset.y {
-        case willShowOffsetY ..< CGFloat.greatestFiniteMagnitude:
-            scrollView.contentInset.bottom = self.ignoredScrollViewContentInsetBottom + self.sr_height
-        default: break
-        }
+        beginRefreshing()
     }
 }
 
 extension SwiftRefreshAutoFooter {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
-        guard self.isHidden else { return }
+        if let _ = newSuperview {
+            guard !self.isHidden else { return }
+            self.scrollView.contentInset.bottom += self.sr_height
+        }else {
+            guard !self.isHidden else { return }
+            self.scrollView.contentInset.bottom -= self.sr_height
+        }
     }
 }
 
-
-extension SwiftRefreshAutoFooter {
-   
-    public func adjust(height: CGFloat) {
-        let oldHeight = self.sr_height
-        let offset = height - oldHeight
-        self.scrollView.contentInset.bottom += offset
-        self.sr_y = scrollView.contentSize.height
-    }
-    
-    func resetY() {
-        self.sr_y = scrollView.contentSize.height + ignoredScrollViewContentInsetBottom
-    }
-}
 
